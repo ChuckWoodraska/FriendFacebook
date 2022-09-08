@@ -5,6 +5,7 @@ Created on Jul 26, 2013
 '''
 
 
+
 import xml.etree.ElementTree as ET
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
@@ -24,7 +25,7 @@ day = 0
 for person in root.iter('person'):
     driver.get("http://www.facebook.com/")
     for info in person.iter():
-        if(info.tag == 'firstName'):            
+        if (info.tag == 'firstName'):            
             inputElement = driver.find_element_by_id("u_0_0")
             inputElement.send_keys(info.text)
         elif(info.tag == 'lastName'):
@@ -47,19 +48,18 @@ for person in root.iter('person'):
             print(month)
             print(day)
             print(year)
-        elif(info.tag == 'sex'):
-            if(info.text == '0'):
+        elif (info.tag == 'sex'):
+            if (info.text == '0'):
                 inputElement = driver.find_element_by_id("u_0_5")
-                inputElement.click()
             else:
                 inputElement = driver.find_element_by_id("u_0_6")
-                inputElement.click()
-            #driver.get("http://www.mytrashmail.com/")
-            #inputElement = driver.find_element_by_id("ContentPlaceHolder2_txtAccount")
-            #inputElement.send_keys("Cheese!")
-            #inputElement = driver.find_element_by_id("ContentPlaceHolder2_cmdGetMail")
-            #inputElement.click()
-            #print (info.text)
+            inputElement.click()
+                    #driver.get("http://www.mytrashmail.com/")
+                    #inputElement = driver.find_element_by_id("ContentPlaceHolder2_txtAccount")
+                    #inputElement.send_keys("Cheese!")
+                    #inputElement = driver.find_element_by_id("ContentPlaceHolder2_cmdGetMail")
+                    #inputElement.click()
+                    #print (info.text)
     inputElement = driver.find_element_by_id("month")
     allOptions = inputElement.find_elements_by_tag_name("option")
     option = allOptions[month]

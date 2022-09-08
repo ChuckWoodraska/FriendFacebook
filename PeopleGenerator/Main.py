@@ -3,12 +3,13 @@ Created on Jul 16, 2013
 
 @author: Chuck Woodraska
 '''
+
 from Person import Person
 import xml.etree.ElementTree as ET
 
 root = ET.Element("root")
 
-for x in range(10):
+for _ in range(10):
     tempPerson = Person()
     tempPerson.generatePerson()
     tempPerson.printPerson()
@@ -26,6 +27,6 @@ for x in range(10):
     email.text = tempPerson.email
     password = ET.SubElement(person, "password")
     password.text = tempPerson.password
-    
+
 tree = ET.ElementTree(root)
 tree.write("People.xml")

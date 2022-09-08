@@ -26,7 +26,7 @@ class Person:
         print(self.email)
     
     def generateFirstName(self, listName, size):
-        file = open(listName+'.txt')
+        file = open(f'{listName}.txt')
         lines = file.readlines()
         tempName = lines[random.randint(0,size-1)]
         tempNameSplit = tempName.split('\n')
@@ -65,13 +65,13 @@ class Person:
             self.generateFirstName("male",516)
     
     def generatePassword(self):
-        for x in range(32):
+        for _ in range(32):
             self.password = self.password + random.choice('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0987654321')
     
     def generateEmail(self):
-        for x in range(24):
+        for _ in range(24):
             self.email = self.email + random.choice('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0987654321')
-        self.email = self.email + '@mt2014.com'
+        self.email = f'{self.email}@mt2014.com'
         
     def generatePerson(self):
         self.generateSex()

@@ -51,7 +51,7 @@ for person in root.iter('person'):
         elif(info.tag == 'password'):
             password = info.text
     login(email, password)
-    
+
     #ACTION AREA
     friendSomebody()
     
